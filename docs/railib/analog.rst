@@ -1,5 +1,5 @@
 =========================
-Custom RIAL Cells Library
+Custom RAIL Cells Library
 =========================
 
 Cell 1

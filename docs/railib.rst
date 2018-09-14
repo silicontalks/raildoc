@@ -8,6 +8,6 @@ The digital library is milkyway based, including a db file, and CEL/FRAM library
 
 
 .. toctree::
-   :maxdepth: 
+   :maxdepth: 2
    
-   railib/analog
+   railib/analog.rst

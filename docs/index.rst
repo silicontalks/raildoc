@@ -10,10 +10,9 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-   :glob:
-
-   *
-
+   
+   part
+   
 
 
 Indices and tables

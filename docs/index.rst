@@ -9,7 +9,12 @@ RAIL: Resilient Analog Instance Language Enabled Mixed-Signal Circuits
 It is an open source project for integrated circuits design. 
 The project first releases a 65nm-based RAIL cell libary and a tutorial to complete a simple RAIL design on September 2018.
 
-Contents:
+RAIL Project Repo link
+^^^^^^^^^^^^^^^^^^^^^^^
+Release 0.1: https://github.com/rail-posh/rail65
+
+Contents
+^^^^^^^^
 
 .. toctree::
    :maxdepth: 2

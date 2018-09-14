@@ -43,7 +43,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'RAIL: Resilent Analog Instance Library'
+project = u'RAIL: Resilent Analog Instance Language'
 copyright = u'2018, University of Washington'
 
 # The version info for the project you're documenting, acts as replacement for

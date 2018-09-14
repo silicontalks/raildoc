@@ -3,9 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-It is not OK ?? the Docs Template's documentation!
-==================================================
+RAIL: Resilient Analog Instance Language Enabled Mixed-Signal Design
+====================================================================
 
+It is an open source project for integrated circuits design. 
 Contents:
 
 .. toctree::

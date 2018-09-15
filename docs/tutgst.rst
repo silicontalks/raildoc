@@ -194,8 +194,33 @@ All the script metioned in the step is avaialbe in the rail65 repo, under the di
 Step 4: Merge the GDS and Import to Virtuoso
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-adf
+If your rail65.gds are seperate from the OA database in Virtuoso, you can use *calibredrv* to merge the gds
+
+.. code-block:: none
+
+   calibredrv -a layout filemerge -in SW_BANK_01_v1.gds -indir /../analog/gds -out SW_BANK_01_m1.gds -topcell SW_BANK_01
+   
+But we highly recommend streaming-in the rail65.gds file to the *rail65* library in virtuoso first. After that, you do not need to do the gds merge. 
+The following figure shows the stream-in flow in the virtuoso. Note that the reference lib should include the standard cell lib (tcbn65lp) and the rail library (rail65).
+
+.. image:: ../image/streamin.png
+     :align: center
+     :width: 400
+     
+A successful layout import will result in a view as follow,
+
+.. image:: ../image/layout_gst.png
+     :align: center
+     :width: 500
 
 Step 5: RUN the DRC/LVS/PEX and post-simulation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The rest step follows the conventional AMS design follow.
+We provide a screenshot of the LVS check in calibre below.
+One of the coolest things in RAIL flow is that the layout it generated is **100%** DRC/LVS clean.
+There is **NO** worry for unnecessary LVS/DRC debugging in the flow.
+
+.. image:: ../image/calibrelvs.png
+     :align: center
+     :width: 600

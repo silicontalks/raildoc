@@ -96,7 +96,10 @@ Now we are ready to create the transmission gate layout by the digital flow. In 
 
 First, let us config all the path needed in the *0_def.tcl* file.
 
+
+
 .. code-block:: tcl
+
 
   # File: 0_def.tcl
   # The milkyway lib path and input/output path
@@ -105,13 +108,12 @@ First, let us config all the path needed in the *0_def.tcl* file.
   set MODULE_NAME SW_BANK_01
   set VERSION     _v1
   set GDS_PATH aprout/$MODULE_NAME$VERSION.gds
-
+  ...
   # The backend files provided by foundry and RAIL project
   set TECHFILE_PATH  /.../tsmcn65_9lmT2.tf
   set STDCELL_DB_PATH /.../tcbn65lp_200a
   set RAILIB_DB_PATH /../digital/front_end/ # where rail65.db is stored
-  ....
-  
+  ....  
   # The physical information set, including floorplan area and allowed routing metal
   set TILE_HT 1.8
   set TILE_WD 0.2
@@ -121,28 +123,33 @@ First, let us config all the path needed in the *0_def.tcl* file.
   set CORE_WD [expr {$TILE_WD * $CORE_COL}]
   set TOP_RT_METAL M5
 
+
+
 Second, we create a the target design based the verilog list we obtained in step 1. 
 The key steps includes
 
+
 .. code-block:: tcl
-  
+
+
   # File: 1_create.tcl
   # Create the library, if already exist can open it
   create_mw_lib \
 	-technology $TECHFILE_PATH \
 	-mw_reference_library  $REFLIB_PATH \
 	-open $LIBR_PATH
-   
+  ... 
   # Import the Verilog and create the floorplan
   read_verilog -top $MODULE_NAME -allow_black_box $RTL_PATH
   create_floorplan -control_type width_and_height \
 		 -core_width  $CORE_WD \
 		 -core_height $CORE_HT \
 		 -bottom_io2core 0.1 -top_io2core 0.1 -left_io2core 0.2
-       
+  ...      
   # First Check
   check_legality
-  
+
+
 If the definition works all good, the results of *check_legality* should have no error, like the screen shot below
 
 .. image:: ../image/checkleg.png
@@ -175,7 +182,10 @@ There should be no erros in this sample.
 After that, the layout is going to be exported in the GDS format. 
 The script looks like,
 
+
 .. code-block:: tcl
+
+
 
    # File: 3_signoff.tcl
    ...
@@ -186,6 +196,9 @@ The script looks like,
                             -map_layer $MAP_PATH
    write_stream -format gds -cells  $MODULE_NAME $GDS_PATH
    ...
+
+
+
 
 The screenshot of these steps is shown below.
  

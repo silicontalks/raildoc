@@ -72,7 +72,7 @@ File --> Import --> Verilog, configure the VerilogIn as follow,
 
 .. image:: ../image/verilogin1.png
      :align: center
-     :width: 200
+     :width: 400
      
 The target library is the library you created, the reference library should include basic/tcbn65lp(standard cell)/rail65. 
 And most importantly, add the verilog netlist.
@@ -80,13 +80,14 @@ To avoid global pin mess, we recommand filling out some name different from your
 
 .. image:: ../image/verilogin2.png
      :align: center
+     :width: 400
      
 Click the OK or Apply. Virtuoso supports a structual verilog schematic generation. If verilog imports successfully, you will see a new schemtaic in the *rail_design* library, thought the wires are ugly.
 
 .. image:: ../image/verilogin3.png
      :align: center
-
-The generated schematic can be used for pre-layout simulation and LVS.
+     
+The generated schematic can be used for pre-layout simulation and LVS. 
 
 Step 3: Generate an Milkyway-based Physcal Design
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

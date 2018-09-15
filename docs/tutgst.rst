@@ -92,7 +92,104 @@ The generated schematic can be used for pre-layout simulation and LVS.
 Step 3: Generate an Milkyway-based Physcal Design
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-adf
+Now we are ready to create the transmission gate layout by the digital flow. In the example, we are using IC Compiler from Synopsys. 
+
+First, let us config all the path needed in the *0_def.tcl* file.
+
+.. code-block:: tcl
+
+  # File: 0_def.tcl
+  # The milkyway lib path and input/output path
+  set LIBR_PATH mw_proj/rail_getting_start
+  set RTL_PATH    rtl/swbk01.v
+  set MODULE_NAME SW_BANK_01
+  set VERSION     _v1
+  set GDS_PATH aprout/$MODULE_NAME$VERSION.gds
+
+  # The backend files provided by foundry and RAIL project
+  set TECHFILE_PATH  /.../tsmcn65_9lmT2.tf
+  set STDCELL_DB_PATH /.../tcbn65lp_200a
+  set RAILIB_DB_PATH /../digital/front_end/ # where rail65.db is stored
+  ....
+  
+  # The physical information set, including floorplan area and allowed routing metal
+  set TILE_HT 1.8
+  set TILE_WD 0.2
+  set CORE_ROW 7
+  set CORE_COL 39
+  set CORE_HT [expr {$TILE_HT * $CORE_ROW}]
+  set CORE_WD [expr {$TILE_WD * $CORE_COL}]
+  set TOP_RT_METAL M5
+
+Second, we create a the target design based the verilog list we obtained in step 1. 
+The key steps includes
+
+.. code-block:: tcl
+  
+  # File: 1_create.tcl
+  # Create the library, if already exist can open it
+  create_mw_lib \
+	-technology $TECHFILE_PATH \
+	-mw_reference_library  $REFLIB_PATH \
+	-open $LIBR_PATH
+   
+  # Import the Verilog and create the floorplan
+  read_verilog -top $MODULE_NAME -allow_black_box $RTL_PATH
+  create_floorplan -control_type width_and_height \
+		 -core_width  $CORE_WD \
+		 -core_height $CORE_HT \
+		 -bottom_io2core 0.1 -top_io2core 0.1 -left_io2core 0.2
+       
+  # First Check
+  check_legality
+  
+If the definition works all good, the results of *check_legality* should have no error, like the screen shot below
+
+.. image:: ../image/checkleg.png
+     :align: center
+     
+The next step is placement and routing. In the case, we mark all the steps explicitly. 
+Note that the power supply and analog nets are routed manually due to their parasitic sensitivity, 
+but the digital nets are done automatically as,
+
+.. code-block:: tcl
+
+   # File: 2_place_route.tcl
+   ...
+   # This part routing the power and analog manually
+   create_power_straps  -direction vertical  -start_at 0.700 -nets  {VSS}  -layer M2 -width 0.3 -look_inside_std_cell
+   ...
+   # This part routes the digital signal automatically
+   set_route_mode_options -zroute true
+   ...
+   route_zrt_detail
+   ...
+   
+A screenshot is illustrated below for a success placement and routing.
+
+.. image:: ../image/aprgst.png
+     :align: center
+
+To complete the layout, we will do an LVS check in ICC. 
+There should be no erros in this sample.
+After that, the layout is going to be exported in the GDS format. 
+The script and screenshot of the step is shown below.
+
+.. code-block:: tcl
+
+   # File: 3_signoff.tcl
+   # Verify the placement and routing
+   verify_lvs
+   
+   # Export the GDS-II file
+   set_write_stream_options -child_depth 0 -skip_ref_lib_cells \
+                            -map_layer $MAP_PATH
+   write_stream -format gds -cells  $MODULE_NAME $GDS_PATH
+
+.. image:: ../image/verifylvs.png
+     :align: center
+     
+All the script metioned in the step is avaialbe in the rail65 repo, under the directory of *sample_getting_started*.
 
 Step 4: Merge the GDS and Import to Virtuoso
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

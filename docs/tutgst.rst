@@ -178,9 +178,9 @@ The script and screenshot of the step is shown below.
 .. code-block:: tcl
 
    # File: 3_signoff.tcl
+   ...
    # Verify the placement and routing
    verify_lvs
-   
    # Export the GDS-II file
    set_write_stream_options -child_depth 0 -skip_ref_lib_cells \
                             -map_layer $MAP_PATH

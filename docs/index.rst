@@ -11,9 +11,11 @@ The project first releases a 65nm-based RAIL cell libary and a tutorial to compl
 
 The motivation of the RAIL project is,
 
-- **to accelerate the analog/mixed-signal (AMS) designs**. Traditional analog/mixed-signal integrated circuit design exploits a fully custom follow, in other words, all work is done manually. RAIL reforms it by introducing a verilog-like topology description language (TDL) and generates its behavior/schematic/layout automatically.
+- **to accelerate the analog/mixed-signal (AMS) designs**. Traditional analog/mixed-signal integrated circuit design exploits a fully custom flow. In other words, all work is done manually with huge time-to-market.  RAIL reforms it by introducing a verilog-like topology description language (TDL) and generates its behavior/schematic/layout automatically.
 
-- **to enable process-portable design methodology**. Traditional AMS designs are high process dependent, which makes it hard to port among different technology. This feature is the main issues concerning by the AMS open source technology. Conventionally, even an IP is released, designers using other process still spend similar developing effort to re-build it. RAIL want to change this status by the TDL and automatic flow. 
+- **to enable process-portable design methodology**. Traditional AMS designs are highly process dependent, which makes it hard to port among different technologies. This feature is the main issues concerning by the AMS open source technology. Conventionally, even an IP is released, designers using other process still spend similar developing efforts to re-build it. RAIL want to change this status by the TDL and automatic flow. 
+
+- **to exploit new methodolgy for digitiezed AMS design**. In the past decades, one big difference on analog circuits is a digitalized trend. Today's PLL contains digital filters and DCOs, rather than the charge-pump and analog filters. ADC are more and more SAR-based, rather than pipelined based. The basic cells of analog blocks are no longer amplifier now, because of it unfriendly on advanced tecnologies. The RAIL project decides to develop a new methodology to embrace the trend.
 
 
 

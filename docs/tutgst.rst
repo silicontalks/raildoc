@@ -185,6 +185,7 @@ The script looks like,
    set_write_stream_options -child_depth 0 -skip_ref_lib_cells \
                             -map_layer $MAP_PATH
    write_stream -format gds -cells  $MODULE_NAME $GDS_PATH
+   ...
 
  The screenshot of these steps is shown below.
  

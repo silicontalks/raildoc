@@ -44,7 +44,49 @@ The verilog file can be found under the RAIL repo, rail65/sample_getting_started
 Step 2: Generate an OA-based Schematic
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-af
+Modify the netlist with the power supply ports,
+
+.. code-block:: Verilog
+
+   // File: swbk01_sch.v
+   `timescale 1ns/1ps
+   module SW_BANK_01 (
+     inout  VDD,VSS,  // Power supply ports
+     input  SW,
+     output POS, NEG
+     );
+     BUFFD3 b01  (.I(SW),.Z(SWB), .VDD(VDD),.VSS(VSS));
+     TGAT   sw00 (.SW(SWB),.POS(POS),.NEG(NEG), .VDD(VDD),.VSS(VSS));
+     TGAT   sw01 (.SW(SWB),.POS(POS),.NEG(NEG), .VDD(VDD),.VSS(VSS));
+     TGAT   sw02 (.SW(SWB),.POS(POS),.NEG(NEG), .VDD(VDD),.VSS(VSS));
+     TGAT   sw03 (.SW(SWB),.POS(POS),.NEG(NEG), .VDD(VDD),.VSS(VSS));
+     TGAT   sw04 (.SW(SWB),.POS(POS),.NEG(NEG), .VDD(VDD),.VSS(VSS));
+     TGAT   sw05 (.SW(SWB),.POS(POS),.NEG(NEG), .VDD(VDD),.VSS(VSS));
+   endmodule
+
+Before launching the virtuoso, make sure cds.lib has been configured correctly that rail65/tsmcN65/tcbn65lp/analogLib/basic can show up in the library manager.
+
+Launch Virtuoso, create a libary named as *rail_design* or any name you want
+
+File --> Import --> Verilog, configure the VerilogIn as follow,
+
+.. image:: ../image/verilogin1.png
+     :align: center
+     :width: 200
+     
+The target library is the library you created, the reference library should include basic/tcbn65lp(standard cell)/rail65. 
+And most importantly, add the verilog netlist.
+To avoid global pin mess, we recommand filling out some name different from your power/gound pin, as shown below
+
+.. image:: ../image/verilogin2.png
+     :align: center
+     
+Click the OK or Apply. Virtuoso supports a structual verilog schematic generation. If verilog imports successfully, you will see a new schemtaic in the *rail_design* library, thought the wires are ugly.
+
+.. image:: ../image/verilogin3.png
+     :align: center
+
+The generated schematic can be used for pre-layout simulation and LVS.
 
 Step 3: Generate an Milkyway-based Physcal Design
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

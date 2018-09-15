@@ -173,7 +173,7 @@ A screenshot is illustrated below for a success placement and routing.
 To complete the layout, we will do an LVS check in ICC. 
 There should be no erros in this sample.
 After that, the layout is going to be exported in the GDS format. 
-The script and screenshot of the step is shown below.
+The script looks like,
 
 .. code-block:: tcl
 
@@ -186,6 +186,8 @@ The script and screenshot of the step is shown below.
                             -map_layer $MAP_PATH
    write_stream -format gds -cells  $MODULE_NAME $GDS_PATH
 
+ The screenshot of these steps is shown below.
+ 
 .. image:: ../image/verifylvs.png
      :align: center
      

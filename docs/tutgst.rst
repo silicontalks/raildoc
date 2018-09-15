@@ -187,7 +187,7 @@ The script looks like,
    write_stream -format gds -cells  $MODULE_NAME $GDS_PATH
    ...
 
- The screenshot of these steps is shown below.
+The screenshot of these steps is shown below.
  
 .. image:: ../image/verifylvs.png
      :align: center

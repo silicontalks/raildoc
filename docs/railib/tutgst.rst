@@ -1,6 +1,6 @@
-=================================
-Tutorial for RAIL Getting Started
-=================================
+=========================================
+Tutorial for RAIL Library Getting Started
+=========================================
 
 **Author**：Chixiao Chen
 

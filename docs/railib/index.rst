@@ -37,7 +37,6 @@ Note: Due to the confidential issues, the layout files only released with those 
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
-   
+      
    tutgst
    analog

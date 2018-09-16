@@ -9,9 +9,6 @@ Note that gds/CEL files are only available for those used already signed NDA, pl
 
 All available library are accessible via the link: https://github.com/rail-posh .
 
-Contents
---------
-
 .. toctree::
    :maxdepth: 1
       

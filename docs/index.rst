@@ -29,7 +29,6 @@ Contents
 .. toctree::
    :maxdepth: 2
       
-   railib/tutgst.rst
-   railib/analog.rst
+   railib
    
 

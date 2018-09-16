@@ -39,5 +39,5 @@ Note: Due to the confidential issues, the layout files only released with those 
    :maxdepth: 2
    :hidden:
    
-   tutgst.rst
-   analog.rst
+   tutgst
+   analog

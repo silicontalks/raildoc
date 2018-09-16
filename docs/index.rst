@@ -20,16 +20,16 @@ The motivation of the RAIL project is,
 
 
 RAIL Project Repo link
-^^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 Release 0.1: https://github.com/rail-posh/rail65
 
 Contents
-^^^^^^^^
+--------
 
 .. toctree::
    :maxdepth: 2
-   :glob:
-   
-   railib
+      
+   railib/tutgst.rst
+   railib/analog.rst
    
 

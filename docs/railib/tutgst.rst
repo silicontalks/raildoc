@@ -1,6 +1,6 @@
-=================================
-Tutorial for RAIL Getting Started
-=================================
+=========================================
+Tutorial for RAIL Library Getting Started
+=========================================
 
 **Author**：Chixiao Chen
 
@@ -25,7 +25,7 @@ The RAIL compiler will generate a verilog-based netlist as follow,
 
    // File: swbk01.v
    `timescale 1ns/1ps
-   module module SW_BANK_01 (
+   module SW_BANK_01 (
      input  SW,
      output POS, NEG 
      );
@@ -70,7 +70,7 @@ Launch Virtuoso, and create a libary named as *rail_design* or any name you want
 
 File --> Import --> Verilog, configure the VerilogIn as follows,
 
-.. image:: ../image/verilogin1.png
+.. image:: ../../image/verilogin1.png
      :align: center
      :width: 400
      
@@ -78,13 +78,13 @@ The target library is the library you created, the reference library should incl
 And most importantly, add the verilog netlist.
 To avoid global pin mess, we recommand filling out a name different from your power/gound pin, as shown below
 
-.. image:: ../image/verilogin2.png
+.. image:: ../../image/verilogin2.png
      :align: center
      :width: 400
      
 Click OK or Apply. Virtuoso supports a structual verilog schematic generation. If verilog imports successfully, you will see a new schematic in the *rail_design* library, though the wires are ugly.
 
-.. image:: ../image/verilogin3.png
+.. image:: ../../image/verilogin3.png
      :align: center
      
 The generated schematic can be used for pre-layout simulation and LVS. 
@@ -152,7 +152,7 @@ The key steps include
 
 If the definition works all good, the results of *check_legality* should have no error, like the screenshot below
 
-.. image:: ../image/checkleg.png
+.. image:: ../../image/checkleg.png
      :align: center
      
 The next step is placement and routing. In the case, we mark all the steps explicitly. 
@@ -174,7 +174,7 @@ but the digital nets are done automatically as,
    
 A screenshot is illustrated below for a successful placement and routing.
 
-.. image:: ../image/aprgst.png
+.. image:: ../../image/aprgst.png
      :align: center
 
 To complete the layout, we will do LVS check in ICC. 
@@ -202,7 +202,7 @@ The script looks like,
 
 The screenshot of these steps is shown below.
  
-.. image:: ../image/verifylvs.png
+.. image:: ../../image/verifylvs.png
      :align: center
      
 All the script metioned in the step is avaialbe in the rail65 repo, under the directory of *sample_getting_started*.
@@ -219,13 +219,13 @@ If your rail65.gds are seperate from the OA database in Virtuoso, you can use *c
 But we highly recommend streaming-in the rail65.gds file to the *rail65* library in virtuoso first. After that, you do not need to do the gds merge. 
 The following figure shows the stream-in flow in the virtuoso. Note that the reference lib should include the standard cell lib (tcbn65lp) and the rail library (rail65).
 
-.. image:: ../image/streamin.png
+.. image:: ../../image/streamin.png
      :align: center
      :width: 400
      
 A successful layout import will result in a view as follow,
 
-.. image:: ../image/layout_gst.png
+.. image:: ../../image/layout_gst.png
      :align: center
      :width: 500
 
@@ -237,6 +237,6 @@ We provide a screenshot of the LVS check in calibre below.
 One of the coolest things in RAIL flow is that the layout it generated is **100%** DRC/LVS clean.
 There is **NO** worry for unnecessary LVS/DRC debugging in the flow.
 
-.. image:: ../image/calibrelvs.png
+.. image:: ../../image/calibrelvs.png
      :align: center
      :width: 600

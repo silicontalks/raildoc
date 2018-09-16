@@ -30,5 +30,6 @@ Contents
    :maxdepth: 2
       
    railib/index
+   compiler
    
 

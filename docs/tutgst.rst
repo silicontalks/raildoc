@@ -25,7 +25,7 @@ The RAIL compiler will generate a verilog-based netlist as follow,
 
    // File: swbk01.v
    `timescale 1ns/1ps
-   module module SW_BANK_01 (
+   module SW_BANK_01 (
      input  SW,
      output POS, NEG 
      );

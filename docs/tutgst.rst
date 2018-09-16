@@ -4,7 +4,7 @@ Tutorial for RAIL Getting Started
 
 **Author**：Chixiao Chen
 
-This a simple tutorial on how to implement a RAIL flow to design an AMS module from scratch to a LVS/DRC clean GDS.
+This is a simple tutorial on how to implement a RAIL flow to design an AMS module from scratch to a LVS/DRC clean GDS.
 To reveil the truth of RAIL, we illustrate the RAIL flow step by step, rather than providing a makefile based fully automatic flow.
 
 To begin with, we need to download the following files from RAIL/rail65 repo, unzip if necessary, and put them onto your VLSI design server,

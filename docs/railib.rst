@@ -36,7 +36,8 @@ Note: Due to the confidential issues, the layout files only released with those 
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :hidden:
    
+   railib/tutgst.rst
    railib/analog.rst

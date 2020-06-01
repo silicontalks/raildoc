@@ -1,0 +1,8 @@
+====================
+Supported Technology
+====================
+
+RAIL library are technology based, we release the following technologies,
+
+- TSMC 65nm LP CMOS (*rail65* repo)
+- Global Foundary 14nm LPP FinFET (still under construction)
